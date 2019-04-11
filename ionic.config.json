@@ -1,0 +1,7 @@
+{
+  "name": "ionicjavaee",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
