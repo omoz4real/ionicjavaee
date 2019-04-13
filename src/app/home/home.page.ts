@@ -6,7 +6,8 @@ import { switchMap } from "rxjs/operators";
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
+import get from "lodash/get";
 
 
 @Component({
@@ -19,16 +20,13 @@ export class HomePage implements OnInit {
     constructor( private dataservice: DataService,private router: Router,private http: HttpClient,private route: ActivatedRoute) 
     {}
     
-    posts$: Observable<any>;
     
     films: Observable<any>;
     
-    loadPost(post: any) {
-    this.router.navigate(["/post", post.id]);
-  }
   
 ngOnInit(){
-    this.films = this.http.get("http://localhost:8080/SimpleService/webresources/suggestedNameService");    
+    this.films = this.dataservice.getFilms();
+//    this.films = this.http.get("http://localhost:8080/SimpleService/webresources/suggestedNameService");    
   }
     
   openDetails(film) {

@@ -11,33 +11,12 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
   
-  getRemoteDatas(){  
-      return this.http.get("http://localhost:8080/SimpleService/webresources/suggestedNameService")
-      .pipe(
-            map((posts: Array<any>) => (posts))
-            );
+    getFilms() {
+    return this.http.get('http://localhost:8080/SimpleService/webresources/suggestedNameService');
   }
-  
-     fetchPostsByCategory(category_id: string) {
-    return this.http
-      .get(
-        "http://localhost:8080/SimpleService/webresources/suggestedNameService"
-      )
-      .pipe(
-        map((posts: Array<any>) => (posts))
-      );
-  }
-  
-  getRemoteData(id: string){  
-      return this.http.get("http://localhost:8080/SimpleService/webresources/suggestedNameService")
-      .pipe(map((post: any)=>(post)));
-      
-  }
-  
-    fetchPost(post_id: string) {
-    return this.http
-      .get("http://localhost:8080/SimpleService/webresources/suggestedNameService")
-      .pipe(map((post: any) => (post)));
+ 
+  getFilm(id) {
+    return this.http.get(`http://localhost:8080/SimpleService/webresources/suggestedNameService/${id}`);
   }
   
 }

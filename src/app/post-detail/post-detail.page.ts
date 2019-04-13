@@ -22,15 +22,11 @@ film: any;
 
   ngOnInit() {
       
-      let id = this.route.snapshot.paramMap.get('id');
-      this.http.get(`http://localhost:8080/SimpleService/webresources/suggestedNameService/${id}`).subscribe(res => {
+            let id = this.route.snapshot.paramMap.get('id');
+      this.dataSrvc.getFilm(id).subscribe(res => {
       this.film = res;
     });
       
-      
-//      this.post$ = this.route.paramMap.pipe(
-//      switchMap((params: ParamMap) => this.dataSrvc.fetchPost(params.get("id")))
-//    );
     
   }
 
